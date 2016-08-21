@@ -1,0 +1,78 @@
+/*All pages*/
+.userPic{
+    height: 64px;
+    width: 64px;
+}
+.userPicLarge{
+    height: 255px;
+    width: 255px;
+}
+
+.content {
+    padding-top: 5px;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #ad1457;
+}
+
+.input-field input[type=password]:focus + label {
+    color: #ad1457;
+}
+
+.input-field input[type=email]:focus + label {
+    color: #ad1457;
+}
+
+.input-field input[type=tel]:focus + label {
+    color: #ad1457;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #ad1457 !important;
+    box-shadow: 0 1px 0 0 #ad1457 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #ad1457 !important;;
+}
+
+.mycolor {
+    color: #ad1457;
+}
+
+/*index */
+.slider .indicators .indicator-item.active {
+    background-color: #ad1457 !important;
+}
+
+.slider .indicators .indicator-item {
+    z-index: 2;
+    bottom: 70px;
+}
+
+.indexcontent {
+    padding-top: 50px;
+    padding-bottom: 400px
+}
+
+/*userpage*/
+.userpaje{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+/*userpageedit*/
+.userpajeedit{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.btnEditAccount{
+    width: 100%;
+    }
+.btnEditAccountPadding{
+    padding-top: 18px;
+}
+
