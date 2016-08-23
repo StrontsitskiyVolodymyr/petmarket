@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav>
     <div class="nav-wrapper   pink darken-3">
         <a href="/" class="brand-logo"><img src="/img/logo.png"></a>
@@ -15,22 +16,32 @@
                     </div>
                 </nav>
             </li>
-            <li><%if (session.getAttribute("user") != null) {%>              <!-- Modal Trigger or side nav btn -->
-                <a href="#" data-activates="slide-out" class="waves-effect waves-light button-collapse show-on-large"><%if (false){%><i class="material-icons right">person_pin</i><%}else{%><img class="circle right userPic" src="img/userphotos/user.jpg"><%}%>${user.user}</a>
-                <%} else {%>
-                <a class="  modal-trigger " href="#modal1"><i class="material-icons right">person_pin</i>Log
-                    in</a>
-                <%}%>
+            <li>
+                <c:choose>
+                    <c:when test="${user.user!=null}"> <!--Side nav btn -->
+                        <a href="#" data-activates="slide-out"
+                           class="waves-effect waves-light button-collapse show-on-large">
+                            <c:choose>
+                                <c:when test="${true}"><img class="circle right userPic"
+                                                            src="img/userphotos/user.jpg"></c:when>
+                                <c:otherwise><i class="material-icons right">person_pin</i></c:otherwise>
+                            </c:choose>
+                                ${user.user}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="  modal-trigger " href="#logInModal"><i class="material-icons right">person_pin</i>Log<!--btn for modal-->
+                            in</a>
+                    </c:otherwise>
+                </c:choose>
             </li>
         </ul>
     </div>
 </nav>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
+<!-- Modal log in structure -->
+<div id="logInModal" class="modal">
     <div class="modal-content">
         <div class="row">
-            <form class="col s12" action="/index" method="post"
+            <form class="col s12" action="/index" method="post">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
@@ -52,7 +63,6 @@
         </div>
     </div>
 </div>
-
 <!--side nav!-->
 <ul id="slide-out" class="side-nav">
     <li>
@@ -72,6 +82,6 @@
     <li>
         <div class="divider"></div>
     </li>
-        <li><a  href="/useredit" class="waves-effect"><i class="material-icons ">settings</i>Settings</a></li>
-    <li><a  href="/logout" class="waves-effect"><i class="material-icons ">input</i>Log out</a></li>
+    <li><a href="/useredit" class="waves-effect"><i class="material-icons ">settings</i>Settings</a></li>
+    <li><a href="/logout" class="waves-effect"><i class="material-icons ">input</i>Log out</a></li>
 </ul>
