@@ -8,7 +8,7 @@
                     <div class="nav-wrapper">
                         <form>
                             <div class="input-field pink darken-3">
-                                <input id="search" type="search" required>
+                                <input id="search" petType="search" required>
                                 <label for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
                             </div>
@@ -45,17 +45,17 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input name="email" id="icon_account" type="email" class="validate">
+                        <input name="email" id="icon_account" petType="email" class="validate">
                         <label for="icon_account">Email</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key" type="password" class="validate">
+                        <input id="icon_key" petType="password" class="validate">
                         <label for="icon_key">Password</label>
                     </div>
                 </div>
                 <div class="center-align">
-                    <button class="btn waves-effect waves-light  pink darken-3" type="submit" name="action">Sign in
+                    <button class="btn waves-effect waves-light  pink darken-3" petType="submit" name="action">Sign in
                     </button>
                     <a class="btn waves-effect waves-light  pink darken-3" href="/registration">Registration</a>
                 </div>

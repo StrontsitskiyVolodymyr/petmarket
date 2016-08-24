@@ -1,51 +1,25 @@
 package com.strontsitskiy.dao.impl;
 
 import com.strontsitskiy.dao.OrderDao;
-import com.strontsitskiy.models.Order;
-import com.strontsitskiy.util.HibernateUtil;
+import com.strontsitskiy.models.PetOrder;
 import org.hibernate.Session;
 
-import java.sql.SQLException;
+public class OrderDaoImpl extends CommonDAOImpl<PetOrder> implements OrderDao {
 
-public class OrderDaoImpl implements OrderDao {
-    public void addOrder(Order order) throws SQLException {
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.save(order);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if ((session != null) && (session.isOpen())) session.close();
-        }
+    public OrderDaoImpl(Class<PetOrder> clazz) {
+        super(clazz);
     }
 
-    public void deleteOrder(Order order) throws SQLException {
+    public PetOrder getByCreatorId(Long creatorId) {
+        PetOrder result  = null;
         Session session = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.delete(order);
-            session.getTransaction().commit();
-        } catch (Exception e) {
+            session = acquireSession();
+            result = (PetOrder) session.createQuery("from  PetOrder where oldOwner = :oldOwner ").setParameter("oldOwner",creatorId).uniqueResult();
+        }catch (Exception e){
             e.printStackTrace();
-        } finally {
-            if ((session != null) && (session.isOpen())) session.close();
-        }
-    }
-
-    public Order getOrder(int id) throws SQLException {
-        Order result = null;
-        Session session = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            result = (Order) session.load(Order.class,id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if ((session != null) && (session.isOpen())) session.close();
+        }finally {
+            closeSession(session);
         }
         return result;
     }

@@ -5,8 +5,8 @@
 <head>
     <title>Shop</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -40,7 +40,7 @@
                 <div class="col s4 center-align ">
                     <a href="/petsearch"><i class="material-icons large mycolor">search</i></a>
                     <h3>Searching pet</h3>
-                    <h5>Here you can find the pet by type, prise, city or species</h5>
+                    <h5>Here you can find the pet by petType, prise, city or species</h5>
                 </div>
                 <div class="col s4 center-align">
                     <a href="/petadding"><i class="material-icons large mycolor">queue</i></a>
@@ -58,9 +58,9 @@
     </div>
     <jsp:include page="futer.jsp"></jsp:include>
     <!--Scripts-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/forallpages.js"></script>
+    <script petType="text/javascript" src="js/jquery.js"></script>
+    <script petType="text/javascript" src="js/materialize.js"></script>
+    <script petType="text/javascript" src="js/forallpages.js"></script>
     <script>
         $(document).ready(function () {
             $('.slider').slider({full_width: true, height: 600});

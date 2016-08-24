@@ -3,8 +3,8 @@
 <head>
     <title>Edit profile</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -16,7 +16,7 @@
             <!--    <img class="pink darken-3" src="img/addphoto.png"/>-->
                 <img class="circle userPicLarge" src="/img/userphotos/user.jpg">
             </label>
-            <input class="hide" id="file-input" type="file"/>
+            <input class="hide" id="file-input" petType="file"/>
         </div>
         <label for="submit">
             <div class="btnEditAccountPadding">
@@ -38,25 +38,25 @@
     <form>
         <ul class="collection with-header center-align">
             <li class="collection-item"><h4><label for="full_name"><i class="material-icons prefix medium">account_circle</i></label><input
-                    value="${user.user}" id="full_name" type="text" class="validate">
+                    value="${user.user}" id="full_name" petType="text" class="validate">
             </h4>
             </li>
             <li class="collection-item"><label for="city"><i class="material-icons prefix">room</i></label><input
                     value="${user.city}" id="city"
-                    type="text" class="validate">
+                    petType="text" class="validate">
             </li>
             <li class="collection-item"><label for="phone"><i class="material-icons prefix">phone</i></label><input
                     value="${user.phone}" id="phone"
-                    type="tel" class="validate">
+                    petType="tel" class="validate">
             </li>
         </ul>
-        <button class=" hide" type="submit" id="submit"></button>
+        <button class=" hide" petType="submit" id="submit"></button>
     </form>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/materialize.js"></script>
-<script type="text/javascript" src="js/forallpages.js"></script>
+<script petType="text/javascript" src="js/jquery.js"></script>
+<script petType="text/javascript" src="js/materialize.js"></script>
+<script petType="text/javascript" src="js/forallpages.js"></script>
 <script>
     $(document).ready(function () {
         Materialize.updateTextFields();
@@ -71,22 +71,22 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key1" type="password" class="validate">
+                        <input id="icon_key1" petType="password" class="validate">
                         <label for="icon_key1">Old password</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key2" type="password" class="validate">
+                        <input id="icon_key2" petType="password" class="validate">
                         <label for="icon_key2">New password</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key3" type="password" class="validate">
+                        <input id="icon_key3" petType="password" class="validate">
                         <label for="icon_key3">Repeat new password</label>
                     </div>
                 </div>
                 <div class="center-align">
-                    <button class="btn waves-effect waves-light  pink darken-3" type="submit" name="action">Change
+                    <button class="btn waves-effect waves-light  pink darken-3" petType="submit" name="action">Change
                         Password
                     </button>
                 </div>

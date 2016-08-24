@@ -3,8 +3,8 @@
 <head>
     <title>Pet searching</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -14,13 +14,13 @@
     <h5>Price</h5>
     <form action="#">
         <p class="range-field">
-            <input type="range" id="test5" min="0" max="100"/>
+            <input petType="range" id="test5" min="0" max="100"/>
         </p>
     </form>
     <h5>Type</h5>
     <div class="input-field col s12">
         <select>
-            <option value="" disabled selected>Choose type</option>
+            <option value="" disabled selected>Choose petType</option>
             <option value="1">Option 1</option>
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>
@@ -53,9 +53,9 @@
     </div>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/materialize.js"></script>
-<script type="text/javascript" src="js/forallpages.js"></script>
+<script petType="text/javascript" src="js/jquery.js"></script>
+<script petType="text/javascript" src="js/materialize.js"></script>
+<script petType="text/javascript" src="js/forallpages.js"></script>
 <script>$(document).ready(function () {
     $('select').material_select();
 });

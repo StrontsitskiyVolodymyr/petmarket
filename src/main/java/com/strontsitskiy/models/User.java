@@ -1,27 +1,23 @@
 package com.strontsitskiy.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-@Entity
 
+@Entity
 public class User {
-@Id
-    private  String email;
-    private  String user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String email;
+    private String userName;
     private String password;
     private String userRole;
     private String phone;
     private String city;
     private String img;
 
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 
     public String getPassword() {
         return password;
@@ -69,5 +65,21 @@ public class User {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

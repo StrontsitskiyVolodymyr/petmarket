@@ -1,12 +1,7 @@
 package com.strontsitskiy.dao;
 
-import com.strontsitskiy.models.Type;
+import com.strontsitskiy.models.PetType;
 
+public interface TypeDao  extends  CommonDAO<PetType>{
 
-import java.sql.SQLException;
-
-public interface TypeDao {
-    public void addType(Type type)throws SQLException;
-    public void deleteType(Type type)throws SQLException;
-    public Type getType(String type)throws SQLException;
 }

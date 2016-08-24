@@ -3,8 +3,8 @@
 <head>
     <title>Pet Adding</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link type="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
+    <link petType="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -18,14 +18,14 @@
             <div class="input-field col s12 center-align">
                 <div class="file-field btn waves-light ">
                     <span>Chose photo</span>
-                    <input type="file"/>
+                    <input petType="file"/>
                 </div>
             </div>
             <div class="input-field col s6">
                 <select>
-                    <option value="" disabled selected>Choose type</option>
+                    <option value="" disabled selected>Choose petType</option>
                     <option value="1">Dog</option>
-                    <option value="2">Add new type</option>
+                    <option value="2">Add new petType</option>
                 </select>
             </div>
             <div class="disabled input-field col s6">
@@ -50,9 +50,9 @@
     </div>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/materialize.js"></script>
-<script type="text/javascript" src="js/forallpages.js"></script>
+<script petType="text/javascript" src="js/jquery.js"></script>
+<script petType="text/javascript" src="js/materialize.js"></script>
+<script petType="text/javascript" src="js/forallpages.js"></script>
 <script>
     $(document).ready(function () {
         $('select').material_select();

@@ -1,35 +1,35 @@
 package com.strontsitskiy.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pet {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String type;
-    private String species;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @OneToOne
+    private PetType petType;
+    @OneToOne
+    private Species species;
     private boolean sex;
-    private  String description;
-    private String owner;
+    private String description;
+    @OneToOne
+    private User owner;
     private int price;
 
-    public String getType() {
-        return type;
+    public PetType getPetType() {
+        return petType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPetType(PetType petType) {
+        this.petType = petType;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -49,13 +49,7 @@ public class Pet {
         this.description = description;
     }
 
-    public String getOwner() {
-        return owner;
-    }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
 
     public int getPrice() {
         return price;
@@ -65,11 +59,19 @@ public class Pet {
         this.price = price;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }

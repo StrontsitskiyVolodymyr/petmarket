@@ -1,18 +1,30 @@
 package com.strontsitskiy.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Species{
+public class Species {
     @Id
-    private  String species;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String speciesName;
 
-    public String getSpecies() {
-        return species;
+    public String getSpeciesName() {
+        return speciesName;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setSpeciesName(String species) {
+        this.speciesName = species;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
