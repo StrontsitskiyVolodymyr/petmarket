@@ -19,8 +19,13 @@
         <property name="hibernate.connection.password">
             root
         </property>
-        <mapping package="com.strontsitskiy.models"/>
-
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.strontsitskiy.models.User"  ></mapping>
+        <mapping class="com.strontsitskiy.models.Pet"  ></mapping>
+        <mapping class="com.strontsitskiy.models.PetOrder"  ></mapping>
+        <mapping class="com.strontsitskiy.models.PetType"  ></mapping>
+        <mapping class="com.strontsitskiy.models.Species"  ></mapping>
     </session-factory>
+
 
 </hibernate-configuration>

@@ -24,7 +24,7 @@ public class HibernateUtil {
 
     private static SessionFactory configureSessionFactory() throws HibernateException {
         Configuration configuration = new Configuration();
-        configuration.configure();
+        configuration.configure("hibernate.cfg.xml");
         serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;
