@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Registration</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet" href="styles/materialize.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="styles/style.css" media="screen,projection"/>
@@ -32,8 +32,8 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_key" type="password" class="validate" name="password">
-                    <label for="icon_key">Repeat password</label>
+                    <input id="icon_key2" type="password" class="validate" name="password">
+                    <label for="icon_key2">Repeat password</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
