@@ -11,7 +11,7 @@ public class Pet {
     private PetType petType;
     @OneToOne
     private Species species;
-    private boolean sex;
+    private String sex;
     private String description;
     @OneToOne
     private User owner;
@@ -33,11 +33,11 @@ public class Pet {
         this.species = species;
     }
 
-    public boolean isSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 

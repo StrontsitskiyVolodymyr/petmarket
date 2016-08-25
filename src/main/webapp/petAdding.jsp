@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,40 +12,53 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container">
     <div class="row">
-        <form class="col s12">
-            <div class="center-align">
-                <img class="input-field circle " width="400" height="400" src="img/petphotos/cat1(3).jpg">
-            </div>
-            <div class="input-field col s12 center-align">
-                <div class="file-field btn waves-light ">
-                    <span>Chose photo</span>
-                    <input type="file"/>
+        <form class="col s12 petAddingMargin" method="post" action="/petadding">
+            <div class="col s6 offset-l3">
+                <div class="center-align input-field txtmargin"><h1>Pet adding</h1></div>
+                <div class="input-field txtmargin">
+                    <input placeholder="Leave empty if free" id="price" type="number" min="1" class="validate" name="price">
+                    <label for="price">Price in $</label>
                 </div>
-            </div>
-            <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Choose type</option>
-                    <option value="1">Dog</option>
-                    <option value="2">Add new type</option>
-                </select>
-            </div>
-            <div class="disabled input-field col s6">
-                <select disabled>
-                    <option value="" disabled selected>Choose species</option>
-                    <option value="1">Husky</option>
-                    <option value="2">Add new species</option>
-                </select>
-            </div>
-            <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Choose sex</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                </select>
-            </div>
-            <div class="input-field col s12">
-                <textarea id="description" class="materialize-textarea" length="255"></textarea>
-                <label for="description">Add description</label>
+                <div class="input-field txtmargin ">
+                    <select name="type">
+                        <option value="" disabled selected>Choose type</option>
+                        <option value="notype">Add new type</option>
+                        <c:forEach items="${pettypes}" var="item">
+                            <option value=${item}>${item}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-field txtmargin">
+                    <input id="addtype" type="text" class="validate" name="newtype">
+                    <label for="addtype">New type</label>
+                </div>
+                <div class="input-field txtmargin">
+                    <select nama="species">
+                        <option value="" disabled selected>Choose species</option>
+                        <option value="nospesies">Add new species</option>
+                        <c:forEach items="${pettypes}" var="item">
+                            <option value=${item}>${item}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-field txtmargin">
+                    <input id="addspecies" type="text" class="validate" name="newspecies">
+                    <label for="addspecies">New species</label>
+                </div>
+                <div class="input-field txtmargin">
+                    <select name="sex">
+                        <option value="" disabled selected>Choose sex</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="input-field txtmargin">
+                    <textarea id="description" class="materialize-textarea" length="255" name="description"></textarea>
+                    <label for="description">Add description</label>
+                </div>
+                <div class="center-align">
+                    <button type="submit" class="btn waves-light">Add pet</button>
+                </div>
             </div>
         </form>
     </div>
@@ -61,3 +75,4 @@
 
 </body>
 </html>
+

@@ -13,16 +13,18 @@
     <div class="right center-align">
         <div class="image-upload">
             <label for="file-input">
-            <!--    <img class="pink darken-3" src="img/addphoto.png"/>-->
+                <!--    <img class="pink darken-3" src="img/addphoto.png"/>-->
                 <img class="circle userPicLarge" src="/img/userphotos/user.jpg">
             </label>
-            <input class="hide" id="file-input" type="file"/>
+            <form id="uploadphoto" method="post" action="/uploaduserphoto"   enctype="multipart/form-data">
+                <input class="hide" id="file-input" type="file" onchange=$("#uploadphoto").submit() name="photo"/>
+            </form>
         </div>
-        <label for="submit">
-            <div class="btnEditAccountPadding">
-                <button class="btnEditAccount btn waves-effect waves-light  pink darken-3 ">Save changes</button>
-            </div>
-        </label>
+        <div class="btnEditAccountPadding">
+            <button class="btnEditAccount btn waves-effect waves-light  pink darken-3 "
+                    onclick=$("#userEditSubmit").submit()>Save changes
+            </button>
+        </div>
         <div class="btnEditAccountPadding">
             <button data-target="modalChangePassword"
                     class="btnEditAccount btn waves-effect waves-light  pink darken-3 modal-trigger">Change password
@@ -35,22 +37,24 @@
         </div>
 
     </div>
-    <form>
+    <form action="/useredit" method="post" id="userEditSubmit">
         <ul class="collection with-header center-align">
             <li class="collection-item"><h4><label for="full_name"><i class="material-icons prefix medium">account_circle</i></label><input
-                    value="${user.user}" id="full_name" type="text" class="validate">
+                    name="userName"
+                    value="${user.userName}" id="full_name" type="text" class="validate">
             </h4>
             </li>
             <li class="collection-item"><label for="city"><i class="material-icons prefix">room</i></label><input
+                    name="city"
                     value="${user.city}" id="city"
                     type="text" class="validate">
             </li>
             <li class="collection-item"><label for="phone"><i class="material-icons prefix">phone</i></label><input
+                    name="phone"
                     value="${user.phone}" id="phone"
                     type="tel" class="validate">
             </li>
         </ul>
-        <button class=" hide" type="submit" id="submit"></button>
     </form>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>
@@ -102,8 +106,8 @@
             <h5>All your data wil be deleted and this can't be canceled! </h5>
         </div>
         <div class="center-align">
-            <button class="btn waves-effect waves-light  pink darken-3">Delete account
-            </button>
+            <a href="/deleteuser" class="btn waves-effect waves-light  pink darken-3">Delete account
+            </a>
         </div>
     </div>
 </div>

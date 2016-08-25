@@ -43,11 +43,35 @@
     <servlet>
         <servlet-name>EditProfileServlet</servlet-name>
         <servlet-class>com.strontsitskiy.servelets.EditProfileServlet</servlet-class>
-            </servlet>
+    </servlet>
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>com.strontsitskiy.servelets.LogOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadingUserPhotoServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.UploadingUserPhotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUserImgServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.GetUserImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserImgServlet</servlet-name>
+        <url-pattern>/getuserimg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadingUserPhotoServlet</servlet-name>
+        <url-pattern>/uploaduserphoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/deleteuser</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
@@ -60,7 +84,7 @@
         <servlet-name>PetSearchServlet</servlet-name>
         <url-pattern>/petsearch</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>UserPageServlet</servlet-name>
         <url-pattern>/userpage</url-pattern>
     </servlet-mapping>

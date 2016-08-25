@@ -15,7 +15,7 @@
         <img class="circle userPicLarge" src="/img/userphotos/user.jpg">
 </div>
        <ul class="collection with-header">
-        <li class="collection-header"><h4><i class="material-icons prefix medium">account_circle</i><span class="right">${user.user}<a href="/useredit"><i class="material-icons mycolor">settings</i></a></span></h4></li>
+        <li class="collection-header"><h4><i class="material-icons prefix medium">account_circle</i><span class="right">${user.userName}<a href="/useredit"><i class="material-icons mycolor">settings</i></a></span></h4></li>
         <li class="collection-item"><i class="material-icons prefix">room</i><span class="right">${user.city}</span></li>
         <li class="collection-item"><i class="material-icons prefix">phone</i><span class="right">${user.phone}</span></li>
         <li class="collection-item"><i class="material-icons prefix">email</i><span class="right">${user.email}</span></li>

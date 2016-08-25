@@ -18,18 +18,19 @@
             </li>
             <li>
                 <c:choose>
-                    <c:when test="${user.user!=null}"> <!--Side nav btn -->
+                    <c:when test="${user!=null}"> <!--Side nav btn -->
                         <a href="#" data-activates="slide-out"
                            class="waves-effect waves-light button-collapse show-on-large">
                             <c:choose>
-                                <c:when test="${true}"><img class="circle right userPic"
-                                                            src="img/userphotos/user.jpg"></c:when>
+                                <c:when test="${user.img!=null}"><img class="circle right userPic"
+                                                                      src=/getuserimg></c:when>
                                 <c:otherwise><i class="material-icons right">person_pin</i></c:otherwise>
                             </c:choose>
-                                ${user.user}</a>
+                                ${user.userName}</a>
                     </c:when>
                     <c:otherwise>
-                        <a class="  modal-trigger " href="#logInModal"><i class="material-icons right">person_pin</i>Log<!--btn for modal-->
+                        <a class="  modal-trigger " href="#logInModal"><i class="material-icons right">person_pin</i>Log
+                            <!--btn for modal-->
                             in</a>
                     </c:otherwise>
                 </c:choose>
@@ -50,7 +51,7 @@
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key" type="password" class="validate">
+                        <input id="icon_key" type="password" class="validate" name="password">
                         <label for="icon_key">Password</label>
                     </div>
                 </div>
@@ -68,8 +69,13 @@
     <li>
         <div class="userView">
             <img class="background  " src="img/side-nav-bac.jpg">
-            <a href="/userpage"><img class="circle userPic" src="img/userphotos/user.jpg"></a>
-            <a href="/userpage"><span class="white-text name">${user.user}</span></a>
+            <a href="/userpage">
+            <c:choose>
+            <c:when test="${user.img!=null}"><img class="circle userPic" src="/getuserimg"></c:when>
+                                     <c:otherwise><i class="material-icons left large">person_pin</i></c:otherwise>
+            </c:choose>
+            </a>
+            <a href="/userpage"><span class="white-text name">${user.userName}</span></a>
             <a href="/userpage"><span class="white-text email">${user.email}</span></a>
         </div>
     </li>
