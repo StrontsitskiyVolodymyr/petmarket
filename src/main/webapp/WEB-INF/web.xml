@@ -60,6 +60,14 @@
         <servlet-name>GetUserImgServlet</servlet-name>
         <servlet-class>com.strontsitskiy.servelets.GetUserImgServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.ChangePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/changepass</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetUserImgServlet</servlet-name>
         <url-pattern>/getuserimg</url-pattern>

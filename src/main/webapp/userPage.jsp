@@ -1,3 +1,5 @@
+<%@ page import="java.util.Date" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,14 +13,26 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container userpaje">
     <div class="right">
-   <!--<a href="/useredit"><img class="pink darken-3" src="img/check_users_group-512%20-%20Copy.png"></a>-->
-        <img class="circle userPicLarge" src="/img/userphotos/user.jpg">
-</div>
-       <ul class="collection with-header">
-        <li class="collection-header"><h4><i class="material-icons prefix medium">account_circle</i><span class="right">${user.userName}<a href="/useredit"><i class="material-icons mycolor">settings</i></a></span></h4></li>
-        <li class="collection-item"><i class="material-icons prefix">room</i><span class="right">${user.city}</span></li>
-        <li class="collection-item"><i class="material-icons prefix">phone</i><span class="right">${user.phone}</span></li>
-        <li class="collection-item"><i class="material-icons prefix">email</i><span class="right">${user.email}</span></li>
+        <c:choose>
+            <c:when test="${someuser.getImg()!=null}"> <img class="circle userPicLarge z-depth-3"
+                                                            src="/getuserimg"></c:when>
+            <c:otherwise><img class="pink darken-3" src="img/nophoto.png"></c:otherwise>
+        </c:choose>
+    </div>
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h4><i class="material-icons prefix medium">account_circle</i><span
+                class="right">${someuser.getUserName()}
+        <c:choose>
+            <c:when test="${user.id==someuser.getId()}"><a href="/useredit"><i
+                    class="material-icons mycolor">settings</i></a></c:when>
+        </c:choose></span>
+        </h4></li>
+        <li class="collection-item"><i class="material-icons prefix">room</i><span
+                class="right">${someuser.getCity()}</span></li>
+        <li class="collection-item"><i class="material-icons prefix">phone</i><span
+                class="right">${someuser.getPhone()}</span></li>
+        <li class="collection-item"><i class="material-icons prefix">email</i><span
+                class="right">${someuser.getEmail()}</span></li>
 
     </ul>
 </div>

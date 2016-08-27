@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"></jsp:include>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -37,20 +38,19 @@
         </div>
         <div class="row center-align">
             <div class="container indexcontent ">
-                <div class="col s4 center-align ">
+                <div class="col s4 center-align z-depth-3 offset-l1">
                     <a href="/petsearch"><i class="material-icons large mycolor">search</i></a>
-                    <h3>Searching pet</h3>
+                    <h3 class="mycolor">Searching pet</h3>
                     <h5>Here you can find the pet by type, prise, city or species</h5>
                 </div>
-                <div class="col s4 center-align">
-                    <a href="/petadding"><i class="material-icons large mycolor">queue</i></a>
-                    <h3>Adding pet</h3>
+                <div class="col s4 center-align offset-l2 z-depth-3 ">
+                    <c:choose>
+                    <c:when test="${user!=null}"><a href="/petadding"></c:when>
+                    <c:otherwise><a class=" modal-trigger " href="#logInModal"></c:otherwise>
+                        </c:choose>
+                        <i class="material-icons large mycolor">queue</i></a>
+                    <h3 class="mycolor">Adding pet</h3>
                     <h5>Here you can sell or give free your pet</h5>
-                </div>
-                <div class="col s4 center-align">
-                    <a href=""><i class="mycolor material-icons large">forum</i></a>
-                    <h3>Owners forum</h3>
-                    <h5>Here you can participate in discussions or create your own</h5>
                 </div>
             </div>
         </div>

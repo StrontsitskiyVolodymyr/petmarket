@@ -23,11 +23,10 @@ public class GetUserImgServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session=request.getSession();
-        User user =(User)session.getAttribute("user");
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
         response.setContentType("image/jpg");
-        String pathToWeb = getServletContext().getRealPath(File.separator);
-        File f = new File(pathToWeb + user.getImg());
+        File f = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + user.getImg());
         BufferedImage bi = ImageIO.read(f);
         OutputStream out = response.getOutputStream();
         ImageIO.write(bi, "jpg", out);

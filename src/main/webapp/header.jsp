@@ -69,10 +69,10 @@
     <li>
         <div class="userView">
             <img class="background  " src="img/side-nav-bac.jpg">
-            <a href="/userpage">
+            <a href="/userpage?user=${user.id}">
             <c:choose>
             <c:when test="${user.img!=null}"><img class="circle userPic" src="/getuserimg"></c:when>
-                                     <c:otherwise><i class="material-icons left large">person_pin</i></c:otherwise>
+
             </c:choose>
             </a>
             <a href="/userpage"><span class="white-text name">${user.userName}</span></a>
@@ -83,9 +83,7 @@
     <li><a class="waves-effect" href="/petsearch"><i class="material-icons ">search</i>Search for a pet</a></li>
     <li><a class="waves-effect" href="/petadding"><i class="material-icons ">queue</i>Add pet</a></li>
     <li><a class="waves-effect" href="#!"><i class="material-icons">done_all</i>Added pets</a></li>
-    <li><a class="waves-effect" href="#!"><i class="material-icons ">question_answer</i>Forum</a></li>
-
-    <li>
+       <li>
         <div class="divider"></div>
     </li>
     <li><a href="/useredit" class="waves-effect"><i class="material-icons ">settings</i>Settings</a></li>

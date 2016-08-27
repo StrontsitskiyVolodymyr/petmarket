@@ -16,6 +16,7 @@ public class Pet {
     @OneToOne
     private User owner;
     private int price;
+    private String img;
 
     public PetType getPetType() {
         return petType;
@@ -50,7 +51,6 @@ public class Pet {
     }
 
 
-
     public int getPrice() {
         return price;
     }
@@ -73,5 +73,13 @@ public class Pet {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

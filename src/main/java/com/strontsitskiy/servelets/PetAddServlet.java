@@ -37,9 +37,9 @@ public class PetAddServlet extends HttpServlet {
         }
         SpeciesDao speciesDao = daoFactory.getSpeciesDao();
         Species species = new Species();
-
-        if (request.getParameter("newspecies").equals("nospecies")) {
+        if (request.getParameter("species").equals("nospecies")) {
             species.setSpeciesName(request.getParameter("newspecies"));
+            species.setParentType(petType);
             speciesDao.add(species);
             pet.setSpecies(species);
         } else {
@@ -48,12 +48,14 @@ public class PetAddServlet extends HttpServlet {
         pet.setDescription(request.getParameter("description"));
         pet.setSex(request.getParameter("sex"));
         Integer price = new Integer(request.getParameter("price"));
-        if (price == null) {pet.setPrice(0);
+        if (price == null) {
+            pet.setPrice(0);
         } else {
             pet.setPrice(price);
         }
         PetDao petDao = daoFactory.getPetDao();
         petDao.add(pet);
+        response.sendRedirect("/pet?pet="+pet.getId());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

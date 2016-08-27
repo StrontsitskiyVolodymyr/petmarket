@@ -9,24 +9,29 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
+import java.util.Date;
+
 @WebServlet("/upload")
 @MultipartConfig
 public class UploadingUserPhotoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         InputStream inputStream = null;
-        Part filepart=request.getPart("photo");
-        inputStream =filepart.getInputStream();
-        HttpSession session=request.getSession();
-        User user =(User)session.getAttribute("user");
-        String photoName= "photo"+user.getId();
-        File file = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/"+photoName+".jpg");
-        OutputStream out = new FileOutputStream("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/"+photoName+".jpg");
+        Part filepart = request.getPart("photo");
+        inputStream = filepart.getInputStream();
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        long date =new Date().getTime();
+        String photoName = user.getId()+"photo" +date ;
+        File file = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + photoName + ".jpg");
+        OutputStream out = new FileOutputStream("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + photoName + ".jpg");
+        File fordelete = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/"+user.getImg());
+        fordelete.delete();
         byte[] buffer = new byte[1024];
-        for (int n;(n = inputStream.read(buffer)) != -1; out.write(buffer, 0, n));
+        for (int n; (n = inputStream.read(buffer)) != -1; out.write(buffer, 0, n)) ;
         inputStream.close();
         out.close();
         DAOFactory daoFactory = DAOFactory.getInstance();
-        user.setImg(photoName+".jpg");
+        user.setImg(photoName + ".jpg");
         UserDao userDao = daoFactory.getUserDao();
         userDao.update(user);
         response.sendRedirect("/useredit");

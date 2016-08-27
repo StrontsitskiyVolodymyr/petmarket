@@ -1,9 +1,6 @@
 package com.strontsitskiy.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Species {
@@ -11,6 +8,8 @@ public class Species {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String speciesName;
+    @ManyToOne
+    private PetType parentType;
 
     public String getSpeciesName() {
         return speciesName;
@@ -26,5 +25,13 @@ public class Species {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public PetType getParentType() {
+        return parentType;
+    }
+
+    public void setParentType(PetType parentType) {
+        this.parentType = parentType;
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,31 +14,33 @@
     <div class="right center-align">
         <div class="image-upload">
             <label for="file-input">
-                <!--    <img class="pink darken-3" src="img/addphoto.png"/>-->
-                <img class="circle userPicLarge" src="/img/userphotos/user.jpg">
+                <c:choose>
+                    <c:when test="${user.img!=null}"><img class="circle userPicLarge z-depth-3" src="/getuserimg"></c:when>
+                    <c:otherwise><img class="pink darken-3" src="img/addphoto.png"/></c:otherwise>
+                </c:choose>
             </label>
-            <form id="uploadphoto" method="post" action="/uploaduserphoto"   enctype="multipart/form-data">
+            <form id="uploadphoto" method="post" action="/uploaduserphoto" enctype="multipart/form-data">
                 <input class="hide" id="file-input" type="file" onchange=$("#uploadphoto").submit() name="photo"/>
             </form>
         </div>
-        <div class="btnEditAccountPadding">
+        <div class="btnEditAccountPadding z-depth-3">
             <button class="btnEditAccount btn waves-effect waves-light  pink darken-3 "
                     onclick=$("#userEditSubmit").submit()>Save changes
             </button>
         </div>
-        <div class="btnEditAccountPadding">
+        <div class="btnEditAccountPadding z-depth-3">
             <button data-target="modalChangePassword"
                     class="btnEditAccount btn waves-effect waves-light  pink darken-3 modal-trigger">Change password
             </button>
         </div>
-        <div class="btnEditAccountPadding">
+        <div class="btnEditAccountPadding z-depth-3">
             <button data-target="modalDeleteAccount"
                     class="btnEditAccount btn waves-effect waves-light  pink darken-3 modal-trigger">Delete account
             </button>
         </div>
 
     </div>
-    <form action="/useredit" method="post" id="userEditSubmit">
+    <form action="/useredit" method="post" id="userEditSubmit" class="z-depth-3">
         <ul class="collection with-header center-align">
             <li class="collection-item"><h4><label for="full_name"><i class="material-icons prefix medium">account_circle</i></label><input
                     name="userName"
@@ -71,26 +74,26 @@
 <div id="modalChangePassword" class="modal">
     <div class="modal-content">
         <div class="row">
-            <form class="col s12">
+            <form method="post" action="/changepass" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key1" type="password" class="validate">
+                        <input id="icon_key1" type="password" class="validate" name="oldpass">
                         <label for="icon_key1">Old password</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key2" type="password" class="validate">
+                        <input id="icon_key2" type="password" class="validate" name="newpass">
                         <label for="icon_key2">New password</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_key3" type="password" class="validate">
+                        <input id="icon_key3" type="password" class="validate" name="newpassrepeated">
                         <label for="icon_key3">Repeat new password</label>
                     </div>
                 </div>
                 <div class="center-align">
-                    <button class="btn waves-effect waves-light  pink darken-3" type="submit" name="action">Change
+                    <button class="btn waves-effect waves-light  pink darken-3 z-depth-3" type="submit">Change
                         Password
                     </button>
                 </div>

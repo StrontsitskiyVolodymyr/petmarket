@@ -3,6 +3,7 @@ package com.strontsitskiy.dao.impl;
 
 import com.strontsitskiy.dao.CommonDAO;
 import com.strontsitskiy.util.HibernateUtil;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class CommonDAOImpl<O> implements CommonDAO<O> {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-          closeSession(session);
+            closeSession(session);
         }
         return result;
     }
@@ -35,7 +36,7 @@ public class CommonDAOImpl<O> implements CommonDAO<O> {
         Session session = null;
         boolean isUpdated = true;
         try {
-           session = acquireSession();
+            session = acquireSession();
             session.beginTransaction();
             session.update(item);
             session.getTransaction().commit();
@@ -43,7 +44,7 @@ public class CommonDAOImpl<O> implements CommonDAO<O> {
             e.printStackTrace();
             isUpdated = false;
         } finally {
-          closeSession(session);
+            closeSession(session);
         }
         return isUpdated;
     }
@@ -66,15 +67,15 @@ public class CommonDAOImpl<O> implements CommonDAO<O> {
     }
 
     public List<O> getAll() {
-       List<O> result = null;
+        List<O> result = null;
         Session session = null;
         try {
-           session =   acquireSession();
-            result = (List<O>) session.createQuery("from "+ clazz.getName().toLowerCase()).list();
+            session = acquireSession();
+            result = (List<O>) session.createQuery("from " + clazz.getSimpleName()).list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-           closeSession(session);
+            closeSession(session);
         }
         return result;
     }
@@ -85,19 +86,20 @@ public class CommonDAOImpl<O> implements CommonDAO<O> {
         try {
             session = acquireSession();
             result = (O) session.load(clazz, key);
-        }catch (Exception e){
+            Hibernate.initialize(result);
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             closeSession(session);
         }
         return result;
     }
 
-    protected Session acquireSession(){
-      return HibernateUtil.getSessionFactory().openSession();
+    protected Session acquireSession() {
+        return HibernateUtil.getSessionFactory().openSession();
     }
 
-    protected void closeSession(Session session)  {
+    protected void closeSession(Session session) {
         if ((session != null) && (session.isOpen())) session.close();
     }
 }

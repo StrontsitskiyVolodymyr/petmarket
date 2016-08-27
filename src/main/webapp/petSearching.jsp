@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<div class="left">
+<div>
     <h4>Filters</h4>
     <h5>Price</h5>
     <form action="#">
@@ -36,21 +37,43 @@
         </select>
     </div>
 </div>
+<div class="container ">
+    <div class="row">
+        <c:forEach items="${pets}" var="item">
+            <div class="col s4">
+                <div class="small card sticky-action z-depth-3 ">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="img/slide3.jpg">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">${item.getPetType().getTypeName()}<i
+                            class="material-icons right">more_vert</i></span>
+                        <p><a href="/pet?pet=${item.getID()}">Look closer</a></p>
+                    </div>
+                    <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">${item.getPetType().getTypeName()}<i
+                        class="material-icons right">close</i></span>
+                        <p>Species: <span class="mycolor">${item.getSpecies().getSpeciesName()}</span></p>
+                        <p>Sex: <span class="mycolor">${item.getSex()}</span></p>
+                        <p>${item.getDescription()}</p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
 
-<div>
-    <div class="small card sticky-action ">
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="img/slide3.jpg">
-        </div>
-        <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
     </div>
+    <div class="center-align">
+        <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active mycolor"><a href="">1</a></li>
+            <c:forEach items="pages" var="item">
+                <li class="waves-effect"><a href="/petsearch?paje=${item.page}">${item.page}</a></li>
+            </c:forEach>
+
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
 </div>
 <jsp:include page="futer.jsp"></jsp:include>
 <script type="text/javascript" src="js/jquery.js"></script>

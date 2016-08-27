@@ -22,7 +22,7 @@ public class EditProfileServlet extends HttpServlet {
         user.setPhone(request.getParameter("phone"));
         userDao.update(user);
         session.setAttribute("user", user);
-        response.sendRedirect("/userpage");
+        response.sendRedirect("/userpage?user="+user.getId());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
