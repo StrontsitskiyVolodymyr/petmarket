@@ -6,7 +6,7 @@
                 <p class="grey-text text-lighten-4">Volodymyr Strontsitskiy</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">I'm in</h5>
+                <h5 class="white-text">I'm on</h5>
                 <ul>
                     <a href="https://github.com/StrontsitskiyVolodymyr" target="_blank"><img class="userPic"
                                                                                             src="img/social/git.png"></a>

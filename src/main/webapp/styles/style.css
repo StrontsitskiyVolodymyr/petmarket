@@ -1,9 +1,15 @@
+.admin{
+    margin-top: 3%;
+    height: 100%;
+}
+
 /*All pages*/
-.userPic{
+.userPic {
     height: 64px;
     width: 64px;
 }
-.userPicLarge{
+
+.userPicLarge {
     height: 255px;
     width: 255px;
 }
@@ -60,46 +66,72 @@
 }
 
 /*userpage*/
-.userpaje{
+.userpaje {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+
 /*userpageedit*/
-.userpajeedit{
+.userpajeedit {
     padding-top: 70px;
     padding-bottom: 70px;
 }
-.btnEditAccount{
+
+.btnEditAccount {
     width: 100%;
-    }
-.btnEditAccountPadding{
+}
+
+.btnEditAccountPadding {
     padding-top: 14px;
 }
+
 /*petading*/
-.petAddingMargin{
+
+.petAddingMargin {
     margin-top: 3%;
     margin-bottom: 5%;
-   }
-.txtmargin{
+}
+
+.txtmargin {
     margin-bottom: 12%;
 }
-.btninbotom{
+
+.btninbotom {
     margin-bottom: 8%;
 }
 
 /*pet*/
-.forsize{
-    width: 300px;
-    height: 300px;
+.forsize {
+    width: 310px;
+    height: 280px;
 }
-.petmargin{
+
+.petmargin {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.petowner{
+
+.petowner {
     margin-top: 4%;
 }
+
+.uplpadphotobtn {
+    margin-top: 5%;
+}
+.btbspace{
+    margin-top: 3%;
+}
+
 /*registration*/
-.txtmarginregistration{
+.txtmarginregistration {
     margin-bottom: 6%;
+}
+
+/*search*/
+.rowspace{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.imgnr{
+    width: 100%;
 }

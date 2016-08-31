@@ -14,14 +14,16 @@
 <div class="container userpaje">
     <div class="right">
         <c:choose>
-            <c:when test="${someuser.getImg()!=null}"> <img class="circle userPicLarge z-depth-3"
-                                                            src="/getuserimg"></c:when>
+            <c:when test="${someuser.getImg()!=null}"> <img class="circle userPicLarge z-depth-3 materialboxed"
+                                                            src="/getimg?kind=u&userid=${someuser.getId()}"></c:when>
             <c:otherwise><img class="pink darken-3" src="img/nophoto.png"></c:otherwise>
         </c:choose>
     </div>
     <ul class="collection with-header z-depth-3">
         <li class="collection-header"><h4><i class="material-icons prefix medium">account_circle</i><span
-                class="right">${someuser.getUserName()}
+                class="right">${someuser.getUserName()} <c:choose><c:when test="${user.id!=someuser.getId()}"><c:choose><c:when
+                test="${user.getUserRole()=='admin'}"><span class="right"><a href="/deleteuser?id=${someuser.getId()}"
+                                                                             class="btn waves-effect pink darken-3 z-depth-3">Delete</a></span></c:when></c:choose></c:when></c:choose>
         <c:choose>
             <c:when test="${user.id==someuser.getId()}"><a href="/useredit"><i
                     class="material-icons mycolor">settings</i></a></c:when>

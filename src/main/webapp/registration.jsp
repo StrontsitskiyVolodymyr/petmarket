@@ -11,28 +11,28 @@
 <body>
 <div class="container z-depth-3">
     <div class="row ">
-        <form class="col s10 offset-l1" method="post" action="/registration" id="target">
+        <form class="col s10 offset-l1" method="post" action="/registration" id="registrationform">
             <div class="center-align txtmarginregistration">
                 <img class="input-field pink darken-3" src="img/check_users_group-512.png"></div>
             <div class="row">
                 <div class="input-field col s5 txtmarginregistration">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_acount" type="text" class="validate" name="user">
+                    <input id="icon_acount" type="text"  name="user">
                     <label for="icon_acount">Full Name</label>
                 </div>
                 <div class="input-field col s5 offset-l1 txtmarginregistration">
                     <i class="material-icons prefix">email</i>
-                    <input id="icon_email" type="email" class="validate" name="email">
+                    <input id="icon_email" type="email"  name="email">
                     <label for="icon_email">Email</label>
                 </div>
                 <div class="input-field col s5 txtmarginregistration">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_key" type="password" class="validate">
-                    <label for="icon_key">Password</label>
+                    <input id="icon_key1" type="password" name="password">
+                    <label for="icon_key1">Password</label>
                 </div>
                 <div class="input-field col s5 offset-l1 txtmarginregistration">
                     <i class="material-icons prefix">vpn_key</i>
-                    <input id="icon_key2" type="password" class="validate" name="password">
+                    <input id="icon_key2" type="password"  name="password2">
                     <label for="icon_key2">Repeat password</label>
                 </div>
                 <div class="input-field col s5 txtmarginregistration">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="input-field col s5 offset-l1 txtmarginregistration">
                     <i class="material-icons prefix">room</i>
-                    <input id="icon_city" type="text" class="validate" name="city">
+                    <input id="icon_city" type="text"  name="city">
                     <label for="icon_city">City</label>
                 </div>
                 <div class="center-align  txtmarginregistration">
@@ -50,7 +50,7 @@
                     <label for="agree">I have read and agree to all the license terms</label>
                 </div>
                 <div class="center-align">
-                    <button class="btn waves-effect waves-light  pink darken-3 z-depth-3"  id="subButton">Create new
+                    <button class="btn waves-effect waves-light  pink darken-3 z-depth-3" id="subButton">Create new
                         account
                     </button>
                 </div>
@@ -62,19 +62,5 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/materialize.js"></script>
 <script type="text/javascript" src="js/forallpages.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#subButton').on('click', function () {
-            if ($('#agree').attr("checked") == 'checked') {
-                $('#target').submit(function () {
-                });
-            } else {
-                window.alert('You mast agree with license terms');
-                $("#agree").css('border', '1px solid red');
-            }
-        });
-    });
-</script>
-
 </body>
 </html>

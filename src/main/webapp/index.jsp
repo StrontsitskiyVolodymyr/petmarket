@@ -40,8 +40,8 @@
             <div class="container indexcontent ">
                 <div class="col s4 center-align z-depth-3 offset-l1">
                     <a href="/petsearch"><i class="material-icons large mycolor">search</i></a>
-                    <h3 class="mycolor">Searching pet</h3>
-                    <h5>Here you can find the pet by type, prise, city or species</h5>
+                    <h3 class="mycolor">Search pet</h3>
+                    <h5>Here you can find the pet by type, city or species</h5>
                 </div>
                 <div class="col s4 center-align offset-l2 z-depth-3 ">
                     <c:choose>
@@ -49,8 +49,8 @@
                     <c:otherwise><a class=" modal-trigger " href="#logInModal"></c:otherwise>
                         </c:choose>
                         <i class="material-icons large mycolor">queue</i></a>
-                    <h3 class="mycolor">Adding pet</h3>
-                    <h5>Here you can sell or give free your pet</h5>
+                    <h3 class="mycolor">Add pet</h3>
+                    <h5>Here you can sell or give free any kind of pet</h5>
                 </div>
             </div>
         </div>

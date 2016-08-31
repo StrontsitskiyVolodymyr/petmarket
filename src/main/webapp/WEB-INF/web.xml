@@ -53,28 +53,76 @@
         <servlet-class>com.strontsitskiy.servelets.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UploadingUserPhotoServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.UploadingUserPhotoServlet</servlet-class>
+        <servlet-name>UploadingPhotoServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.UploadingPhotoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GetUserImgServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.GetUserImgServlet</servlet-class>
+        <servlet-name>GetImgServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.GetImgServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <servlet-class>com.strontsitskiy.servelets.ChangePasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetSpeciesServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.GetSpeciesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePetServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.DeletePetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.AdminPageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteTypeOrSpeciesServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.DeleteTypeOrSpeciesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckDataServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.CheckDataServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ISUniqueEmailServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.ISUniqueEmailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ISUniqueEmailServlet</servlet-name>
+        <url-pattern>/correctemail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckDataServlet</servlet-name>
+        <url-pattern>/correctdata</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteTypeOrSpeciesServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <url-pattern>/adminpage</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>DeletePetServlet</servlet-name>
+        <url-pattern>/deletepet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>GetSpeciesServlet</servlet-name>
+    <url-pattern>/getspecies</url-pattern>
+</servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <url-pattern>/changepass</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GetUserImgServlet</servlet-name>
-        <url-pattern>/getuserimg</url-pattern>
+        <servlet-name>GetImgServlet</servlet-name>
+        <url-pattern>/getimg</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UploadingUserPhotoServlet</servlet-name>
-        <url-pattern>/uploaduserphoto</url-pattern>
+        <servlet-name>UploadingPhotoServlet</servlet-name>
+        <url-pattern>/uploadphoto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>

@@ -17,10 +17,18 @@ public class DeleteUserServlet extends HttpServlet {
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDao userDao = daoFactory.getUserDao();
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        userDao.remove(user);
-        session.invalidate();
-        response.sendRedirect("/index");
+        if (request.getParameter("id") != null) {
+           Long id =new Long(request.getParameter("id"));
+            User user =userDao.getById(id);
+            userDao.remove(user);
+            response.sendRedirect("/adminpage");
+        } else {
+            User user = (User) session.getAttribute("user");
+            userDao.remove(user);
+            session.invalidate();
+            response.sendRedirect("/index");
+        }
+
 
     }
 }

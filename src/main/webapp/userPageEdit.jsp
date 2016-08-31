@@ -15,11 +15,11 @@
         <div class="image-upload">
             <label for="file-input">
                 <c:choose>
-                    <c:when test="${user.img!=null}"><img class="circle userPicLarge z-depth-3" src="/getuserimg"></c:when>
+                    <c:when test="${user.img!=null}"><img class="circle userPicLarge z-depth-3" src="/getimg?kind=u&userid=${user.id}"></c:when>
                     <c:otherwise><img class="pink darken-3" src="img/addphoto.png"/></c:otherwise>
                 </c:choose>
             </label>
-            <form id="uploadphoto" method="post" action="/uploaduserphoto" enctype="multipart/form-data">
+            <form id="uploadphoto" method="post" action="/uploadphoto" enctype="multipart/form-data">
                 <input class="hide" id="file-input" type="file" onchange=$("#uploadphoto").submit() name="photo"/>
             </form>
         </div>

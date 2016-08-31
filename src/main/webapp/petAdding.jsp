@@ -12,55 +12,54 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container">
     <div class="row ">
-        <form class="col s12 petAddingMargin z-depth-3 " method="post" action="/petadding">
+        <form class="col s12 petAddingMargin z-depth-3 " method="post" action="/petadding" id="petaddform">
             <div class="col s8 offset-l2 ">
-                <div class="center-align input-field txtmargin"><h1 class="mycolor">Pet adding</h1></div>
-                <div class="input-field txtmargin ">
-                    <input placeholder="Leave empty if free" id="price" type="number" min="1" class="validate" name="price">
-                    <label for="price" >Price in $</label>
+                <div class="center-align input-field txtmargin"><h1 class="mycolor">Add parameters step by step</h1>
                 </div>
-                <div class="input-field txtmargin">
-                    <select name="type">
+                <div class="input-field txtmargin ">
+                    <input placeholder="Put zero if free" id="priceinput" type="number" min="0" class="validate"
+                           name="price">
+                    <label for="priceinput">Price in $</label>
+                </div>
+                <div class="input-field txtmargin" id="divtypeselect">
+                    <select id="typeselect" name="typeselect">
                         <option value="" disabled selected>Choose type</option>
-                        <option value="notype" onchange="$enable()">Add new type</option>
+                        <option value="notype">Add new type</option>
                         <c:forEach items="${pettypes}" var="item">
-                            <option onchange="$disable()" value=${item.getTypeName()}>${item.getTypeName()}</option>
+                            <option id="sometype" value=${item.getTypeName()}>${item.getTypeName()}</option>
                         </c:forEach>
                     </select>
                 </div>
-                <div class="input-field txtmargin">
-                    <input id="addtype" type="text" class="validate hidetype" name="newtype">
+                <div class="input-field txtmargin" id="addtype">
+                    <input type="text" class="validate type" name="newtype">
                     <label for="addtype">New type</label>
                 </div>
-                <div class="input-field txtmargin">
-                    <select name="species">
+                <div class="input-field txtmargin" id="species">
+                    <select name="speciesa" id="speciesselect">
                         <option value="" disabled selected>Choose species</option>
                         <option value="nospecies">Add new species</option>
-                        <c:forEach items="${species}" var="item">
-                            <option value=${item.getSpeciesName()}>${item.getSpeciesName()}</option>
-                        </c:forEach>
                     </select>
                 </div>
-                <div class="input-field txtmargin">
-                    <input id="addspecies" type="text" class="validate" name="newspecies">
+                <div class="input-field txtmargin" id="addspecies">
+                    <input type="text" class="validate" name="newspecies">
                     <label for="addspecies">New species</label>
                 </div>
-                <div class="input-field txtmargin">
+                <div class="input-field txtmargin" id="sex">
                     <select name="sex">
                         <option value="" disabled selected>Choose sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
-                <div class="input-field txtmargin">
-                    <textarea id="description" class="materialize-textarea" length="255" name="description"></textarea>
+                <div class="input-field txtmargin" id="description">
+                    <textarea class="materialize-textarea" length="255" name="description" id="descriptioninput" minlength="5"></textarea>
                     <label for="description">Add description</label>
-                </div>
-                <div class="center-align btninbotom">
-                    <button type="submit" class="btn waves-light pink darken-3 z-depth-3">Add pet</button>
                 </div>
             </div>
         </form>
+        <div class="center-align btninbotom" id="btnadd">
+            <button id="subpetadd" class="btn waves-light pink darken-3 z-depth-3">Add pet</button>
+        </div>
     </div>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>

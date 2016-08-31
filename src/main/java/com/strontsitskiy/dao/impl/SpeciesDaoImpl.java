@@ -1,8 +1,11 @@
 package com.strontsitskiy.dao.impl;
 
 import com.strontsitskiy.dao.SpeciesDao;
+import com.strontsitskiy.models.PetType;
 import com.strontsitskiy.models.Species;
 import org.hibernate.Session;
+
+import java.util.List;
 
 public class SpeciesDaoImpl extends CommonDAOImpl<Species> implements SpeciesDao {
 
@@ -10,7 +13,7 @@ public class SpeciesDaoImpl extends CommonDAOImpl<Species> implements SpeciesDao
         super(clazz);
     }
 
-    public Species getSpicesByName(String speciesName) {
+    public Species getSpeciesByName(String speciesName) {
         Species result  = null;
         Session session = null;
         try {
@@ -23,4 +26,20 @@ public class SpeciesDaoImpl extends CommonDAOImpl<Species> implements SpeciesDao
         }
         return result;
     }
+
+    public List<Species> getSpeciesByType(PetType petType) {
+        List<Species> result = null;
+        Session session = null;
+        try {
+            session = acquireSession();
+            result = (List<Species>) session.createQuery("from Species where parentType=:pettype" ).setParameter("pettype",petType).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeSession(session);
+        }
+        return result;
+    }
+
+
 }

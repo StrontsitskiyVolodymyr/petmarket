@@ -28,34 +28,31 @@ public class PetAddServlet extends HttpServlet {
         DAOFactory daoFactory = DAOFactory.getInstance();
         TypeDao typeDao = daoFactory.getTypeDao();
         PetType petType = new PetType();
-        if (request.getParameter("type").equals("notype")) {
+        if (request.getParameter("typeselect").equals("notype")) {
             petType.setTypeName(request.getParameter("newtype"));
             pet.setPetType(petType);
             typeDao.add(petType);
         } else {
-            pet.setPetType(typeDao.getTypeByName(request.getParameter("type")));
+            pet.setPetType(typeDao.getTypeByName(request.getParameter("typeselect")));
+            petType = typeDao.getTypeByName(request.getParameter("typeselect"));
         }
         SpeciesDao speciesDao = daoFactory.getSpeciesDao();
         Species species = new Species();
-        if (request.getParameter("species").equals("nospecies")) {
+        if (request.getParameter("speciesa").equals("nospecies")) {
             species.setSpeciesName(request.getParameter("newspecies"));
             species.setParentType(petType);
             speciesDao.add(species);
             pet.setSpecies(species);
         } else {
-            pet.setSpecies(speciesDao.getSpicesByName(request.getParameter("species")));
+            pet.setSpecies(speciesDao.getSpeciesByName(request.getParameter("speciesa")));
         }
         pet.setDescription(request.getParameter("description"));
         pet.setSex(request.getParameter("sex"));
         Integer price = new Integer(request.getParameter("price"));
-        if (price == null) {
-            pet.setPrice(0);
-        } else {
-            pet.setPrice(price);
-        }
+        pet.setPrice(price);
         PetDao petDao = daoFactory.getPetDao();
         petDao.add(pet);
-        response.sendRedirect("/pet?pet="+pet.getId());
+        response.sendRedirect("/pet?pet=" + pet.getId());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
