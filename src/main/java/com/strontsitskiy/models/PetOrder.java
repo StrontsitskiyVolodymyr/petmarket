@@ -14,6 +14,9 @@ public class PetOrder {
     @OneToOne
     private  Pet targetPet;
 
+    private String date;
+    private  String status;
+
     public Long getId() {
         return id;
     }
@@ -44,5 +47,21 @@ public class PetOrder {
 
     public void setTargetPet(Pet targetPet) {
         this.targetPet = targetPet;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

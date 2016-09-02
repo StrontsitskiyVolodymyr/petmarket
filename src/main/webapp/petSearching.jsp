@@ -27,7 +27,8 @@
     <div class="row rowspace">
         <c:choose>
             <c:when test="${pets.size()==0}"><img class="imgnr z-depth-3" src="img/noresult2.png"></c:when>
-            <c:otherwise><c:forEach items="${pets}" var="item">
+            <c:otherwise>
+                <c:forEach items="${pets}" var="item">
                 <div class="col s4">
                     <div class="medium card sticky-action z-depth-3">
                         <div class="card-image waves-effect waves-block waves-light">
@@ -76,7 +77,6 @@
     $(document).ready(function () {
         $('select').material_select();
     });
-
-</script>
+ </script>
 </body>
 </html>

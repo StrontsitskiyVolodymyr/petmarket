@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.modal-trigger').leanModal();
-
 });
+
 $(document).ready(function () {
     $(".button-collapse").sideNav();
 });
@@ -153,14 +153,15 @@ function isEmail(email) {
     return regex.test(email);
 }
 
-//log in
+//sign  in
 
 $(document).ready(function () {
     $('#loginbtn').on('click', function () {
         if (!$('#login').val()) {
             Materialize.toast('Enter your email', 4000);
         } else if (isEmail($('#login').val())) {
-            dataCorrect($('#login').val(), $('#passwordlogin').val());
+            var url = $(location).attr('href');
+            dataCorrect($('#login').val(), $('#passwordlogin').val(), url);
         }
         else {
             Materialize.toast('Email invalid', 4000);
@@ -170,12 +171,12 @@ $(document).ready(function () {
 
 //  ajax  for  checking email and password
 
-function dataCorrect(email, password) {
+function dataCorrect(email, password, url) {
     $.ajax({
         url: '/correctdata',
         type: 'POST',
         dataType: 'json',
-        data: {email: email, password: password},
+        data: {email: email, password: password, url: url},
         success: function (jsonresult) {
             var checkstatus = '';
             $.each(jsonresult, function (index, value) {
@@ -220,3 +221,65 @@ function isUniqueEmail(email) {
         }
     });
 }
+
+//pet page ajax
+
+function isInBasket() {
+    $.ajax({
+        url: '/isinbasket',
+        type: 'POST',
+        dataType: 'json',
+        success: function (jsonresult) {
+            var checkstatus = '';
+            $.each(jsonresult, function (index, value) {
+                checkstatus = value;
+            });
+            if (checkstatus == "inbasket") {
+                $('#inbasket').show();
+            }
+            if (checkstatus == "isntinbasket") {
+                $('#putinbasket').show();
+            }
+        }
+    });
+}
+
+$(document).ready(function () {
+    $('#putinbasket').click(function () {
+        $.ajax({
+            url: '/basket',
+            type: 'POST',
+            dataType: 'json',
+            success: function (jsonresult) {
+                var checkstatus = '';
+                $.each(jsonresult, function (index, value) {
+                    checkstatus = value;
+                });
+                if (checkstatus == "nowinbasket") {
+                    $('#putinbasket').hide();
+                    $('#inbasket').show();
+                    Materialize.toast('Pet added in basket', 4000);
+                }
+            }
+        });
+    });
+});
+
+//count of  orders
+
+$(document).ready(function () {
+    $('#sideNavBtn').click(function () {
+        $.ajax({
+            url: '/countoforders',
+            type: 'POST',
+            dataType: 'json',
+            success: function (jsonresult) {
+                $.each(jsonresult, function (index, value) {
+                    $("#countOfOrders").empty();
+                    $("#countOfOrders").append(value);
+                });
+            }
+        });
+    });
+});
+

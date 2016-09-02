@@ -14,7 +14,7 @@
 
 <div class="body">
     <div class="content">
-        <div class="slider">
+        <div class="slider" id="mainslider">
             <ul class="slides">
                 <li>
                     <img src=img/slide1.jpg>
@@ -54,17 +54,15 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <jsp:include page="futer.jsp"></jsp:include>
-    <!--Scripts-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/forallpages.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.slider').slider({full_width: true, height: 600});
-        });
-    </script>
-</div>
+</div><jsp:include page="futer.jsp"></jsp:include><!--Scripts-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript" src="js/forallpages.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#mainslider').slider({full_width: true, height: 600});
+    });
+</script>
+</body >
 </html>

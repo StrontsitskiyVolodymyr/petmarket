@@ -19,7 +19,7 @@
             <li>
                 <c:choose>
                     <c:when test="${user!=null}"> <!--Side nav btn -->
-                        <a href="#" data-activates="slide-out"
+                        <a id="sideNavBtn" href="#" data-activates="slide-out"
                            class="waves-effect waves-light button-collapse show-on-large">
                             <c:choose>
                                 <c:when test="${user.img!=null}"><img class="circle right userPic"
@@ -29,7 +29,7 @@
                                 ${user.userName}</a>
                     </c:when>
                     <c:otherwise>
-                        <a class="  modal-trigger " href="#logInModal"><i class="material-icons right">person_pin</i>Log
+                        <a class="  modal-trigger " href="#logInModal"><i class="material-icons right">person_pin</i>Sign
                             <!--btn for modal-->
                             in</a>
                     </c:otherwise>
@@ -88,6 +88,7 @@
             </li>
         </c:when>
     </c:choose>
+        <li><a class="waves-effect" href="/basket"><i class="material-icons ">shopping_basket</i>Basket<span id="countOfOrders" class="badge ">1</span></a></li>
     <li><a class="waves-effect" href="/petsearch"><i class="material-icons ">search</i>Search for a pet</a></li>
     <li><a class="waves-effect" href="/petadding"><i class="material-icons ">queue</i>Add pet</a></li>
     <li><a class="waves-effect" href="/petsearch?userid=${user.id}"><i class="material-icons">done_all</i>Added pets</a>

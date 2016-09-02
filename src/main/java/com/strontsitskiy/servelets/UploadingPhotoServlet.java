@@ -16,6 +16,7 @@ import java.util.Date;
 @WebServlet("/upload")
 @MultipartConfig
 public class UploadingPhotoServlet extends HttpServlet {
+    String path="C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("petid") == null) {
             InputStream inputStream = null;
@@ -25,10 +26,10 @@ public class UploadingPhotoServlet extends HttpServlet {
             User user = (User) session.getAttribute("user");
             long date = new Date().getTime();
             String photoName = user.getId() + "photo" + date;
-            File file = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + photoName + ".jpg");
-            OutputStream out = new FileOutputStream("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + photoName + ".jpg");
+            File file = new File(path+"img/userphotos/" + photoName + ".jpg");
+            OutputStream out = new FileOutputStream(path+"img/userphotos/" + photoName + ".jpg");
             if (user.getImg() != null) {
-                File fordelete = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + user.getImg());
+                File fordelete = new File(path+"img/userphotos/" + user.getImg());
                 fordelete.delete();
             }
             byte[] buffer = new byte[1024];
@@ -50,10 +51,10 @@ public class UploadingPhotoServlet extends HttpServlet {
             Pet pet = petDao.getById(petid);
             long date = new Date().getTime();
             String photoName = pet.getId() + "photo" + date;
-            File file = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/petphotos/" + photoName + ".jpg");
-            OutputStream out = new FileOutputStream("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/petphotos/" + photoName + ".jpg");
+            File file = new File(path+"img/petphotos/" + photoName + ".jpg");
+            OutputStream out = new FileOutputStream(path+"img/petphotos/" + photoName + ".jpg");
             if (pet.getImg() != null) {
-                File fordelete = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/petphotos/" + pet.getImg());
+                File fordelete = new File(path+"img/petphotos/" + pet.getImg());
                 fordelete.delete();
             }
             byte[] buffer = new byte[1024];

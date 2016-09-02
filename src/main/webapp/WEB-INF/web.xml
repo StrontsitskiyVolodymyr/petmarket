@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.IndexServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>RegistrationServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.RegistrationServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.RegistrationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationServlet</servlet-name>
@@ -22,7 +22,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>pet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.PetServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.pet_service.PetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pet</servlet-name>
@@ -30,27 +30,27 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>petadd</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.PetAddServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.pet_service.PetAddServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserPageServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.UserPageServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.UserPageServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PetSearchServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.PetSearchServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.pet_service.PetSearchServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditProfileServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.EditProfileServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.EditProfileServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.LogOutServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.LogOutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.DeleteUserServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UploadingPhotoServlet</servlet-name>
@@ -62,15 +62,15 @@
     </servlet>
     <servlet>
         <servlet-name>ChangePasswordServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.ChangePasswordServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.ChangePasswordServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GetSpeciesServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.GetSpeciesServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.pet_service.GetSpeciesServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeletePetServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.DeletePetServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.pet_service.DeletePetServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminPageServlet</servlet-name>
@@ -82,12 +82,52 @@
     </servlet>
     <servlet>
         <servlet-name>CheckDataServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.CheckDataServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.CheckDataServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ISUniqueEmailServlet</servlet-name>
-        <servlet-class>com.strontsitskiy.servelets.ISUniqueEmailServlet</servlet-class>
+        <servlet-class>com.strontsitskiy.servelets.user_service.ISUniqueEmailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BasketServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.basket_order.BasketServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IsInBasketServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.basket_order.IsInBasketServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CountOfOrdersServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.badges.CountOfOrdersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.basket_order.OrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.basket_order.DeleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/deleteorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/orderinfo</url-pattern>
+</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CountOfOrdersServlet</servlet-name>
+        <url-pattern>/countoforders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IsInBasketServlet</servlet-name>
+        <url-pattern>/isinbasket</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BasketServlet</servlet-name>
+        <url-pattern>/basket</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ISUniqueEmailServlet</servlet-name>
         <url-pattern>/correctemail</url-pattern>

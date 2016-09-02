@@ -30,7 +30,10 @@
                             <div class="collapsible-header active"><i class="material-icons mycolor">live_help</i>Price:
                                 <c:choose><c:when test="${pet.price==0}"><span
                                         class="green-text">Free</span></c:when><c:otherwise><span>${pet.price}$</span></c:otherwise></c:choose>
-                           <c:choose><c:when test="${user.getUserRole()=='admin'}"><span class="right"><a  href="/deletepet?petid=${pet.id}" class="btn waves-effect pink darken-3 z-depth-3">Delete</a></span></c:when></c:choose> </div>
+                                <c:choose><c:when test="${user.getUserRole()=='admin'}"><span class="right"><a
+                                        href="/deletepet?petid=${pet.getId()}"
+                                        class="btn waves-effect pink darken-3 z-depth-3">Delete</a></span></c:when></c:choose>
+                            </div>
                             <div class="collapsible-body">
                                 <div class="row center-align">
                                     <div class="col s4"><p>Type: <span
@@ -45,14 +48,19 @@
                         </li>
                         <li>
                             <div class="collapsible-header"><i
-                                    class="material-icons mycolor">person_pin</i>Owner<c:choose><c:when
-                                    test="${user.id==pet.getOwner().getId()}"> settings</c:when></c:choose></div>
+                                    class="material-icons mycolor">
+                                <c:choose>
+                                <c:when test="${pet.getOwner().getUserName()!='shop'}">person_pin</i>Owner<c:choose><c:when
+                                    test="${user.id==pet.getOwner().getId()}"> settings</c:when></c:choose></c:when><c:otherwise>
+                                store</i>Shop</c:otherwise>
+                                </c:choose></div>
                             <div class="collapsible-body">
                                 <div class="row ">
                                     <div class="col s10 offset-l1">
                                         <c:choose>
-                                            <c:when test="${user.id!=pet.getOwner().getId()}"><img class="circle userPic left"
-                                                                 src="/getimg?kind=u&userid=${pet.getOwner().getId()}"><a
+                                            <c:when test="${user.id!=pet.getOwner().getId()}"><img
+                                                    class="circle userPic left"
+                                                    src="/getimg?kind=u&userid=${pet.getOwner().getId()}"><a
                                                     href="/userpage?user=${pet.getOwner().getId()}">
                                                 <div class="petowner">${pet.getOwner().getUserName()}</div>
                                             </a></c:when>
@@ -61,26 +69,26 @@
                                                     <c:choose>
                                                         <c:when test="${pet.getOwner().getId()==user.id}">
                                                             <div class=" hide">
-                                                                <form action="/uploadphoto?petid=${pet.getId()}" method="post" enctype="multipart/form-data"
+                                                                <form action="/uploadphoto?petid=${pet.getId()}"
+                                                                      method="post" enctype="multipart/form-data"
                                                                       id="uploadphotopet">
                                                                     <div class="file-field input-field">
                                                                         <div class=" btn waves-effect light z-depth-3 pink darken-3">
-                                                                            <input id="btnaddpetphoto" type="file" onchange=$("#uploadphotopet").submit()
+                                                                            <input id="btnaddpetphoto" type="file"
+                                                                                   onchange=$("#uploadphotopet").submit()
                                                                                    name="petphoto">
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
-                                                            <label for="btnaddpetphoto" class="btn z-depth-3 pink darken-3 waves-effect">Upload new photo</label>
-                                                            <a href="/deletepet?petid=${pet.id}" class="btn pink darken-3 z-depth-3 waves-effect">Delete pet</a>
+                                                            <label for="btnaddpetphoto"
+                                                                   class="btn z-depth-3 pink darken-3 waves-effect">Upload
+                                                                new photo</label>
+                                                            <a href="/deletepet?petid=${pet.id}"
+                                                               class="btn pink darken-3 z-depth-3 waves-effect">Delete
+                                                                pet</a>
                                                         </c:when>
-                                                        <c:otherwise>
-                                                            <a class="btn tooltipped z-depth-3 pink darken-3" data-position="top" data-delay="50"
-                                                               data-tooltip="${pet.price}$"
-                                                               onclick="Materialize.toast('Pet added in basket', 4000)">Add in basket</a>
-                                                        </c:otherwise>
                                                     </c:choose>
-
                                                 </div>
                                             </c:otherwise>
                                         </c:choose>
@@ -92,7 +100,22 @@
                 </div>
             </div>
         </div>
-
+        <c:choose>
+            <c:when test="${pet.getOwner().getUserRole()=='shop'}">
+                <div class="center-align"><c:choose>
+                    <c:when test="${user==null}"><a id="signin" class="  modal-trigger btn  z-depth-3 pink darken-3 "
+                                                    href="#logInModal">Sign in to order the delivery at the
+                        address</a></c:when>
+                    <c:otherwise>
+                        <a id="putinbasket" class="btn tooltipped z-depth-3 pink darken-3" data-position="top"
+                           data-delay="50"
+                           data-tooltip="${pet.price}$">Put in <i class="material-icons">shopping_basket</i></a>
+                        <a id="inbasket" href="/basket" class="btn  z-depth-3 green"><i class="material-icons">shopping_basket</i>
+                        </a>
+                    </c:otherwise></c:choose>
+                </div>
+            </c:when>
+        </c:choose>
 
 
     </div>
@@ -107,10 +130,14 @@
     $(document).ready(function () {
         $('.materialboxed').materialbox();
         $('.collapsible').collapsible({
-            accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+            accordion: false
         })
+            });
+    $(document).ready(function () {
+        $('#putinbasket').hide();
+        $('#inbasket').hide();
+        isInBasket();
     });
-
 </script>
 </body>
 </html>

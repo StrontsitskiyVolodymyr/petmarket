@@ -57,4 +57,18 @@ public class PetDaoImpl  extends  CommonDAOImpl<Pet> implements PetDao {
         }
         return result;
     }
+
+    public List<Pet> getLastAddedPets() {
+        List<Pet> result = null;
+        Session session = null;
+        try {
+            session = acquireSession();
+            result = (List<Pet>) session.createQuery("select 5 from Pet order by id desc" ).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeSession(session);
+        }
+        return result;
+    }
 }

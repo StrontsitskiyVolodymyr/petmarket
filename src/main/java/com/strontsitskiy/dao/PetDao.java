@@ -12,4 +12,5 @@ public interface PetDao extends CommonDAO<Pet> {
     List<Pet> getPetsByOwner(User owner);
     List<Pet> getPetsByType(PetType type);
     List<Pet> getPetsBySpecies(Species species);
+    List<Pet> getLastAddedPets();
 }
