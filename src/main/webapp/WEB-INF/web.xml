@@ -108,6 +108,14 @@
         <servlet-name>DeleteOrderServlet</servlet-name>
         <servlet-class>com.strontsitskiy.servelets.basket_order.DeleteOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReturnInfoInPDFServlet</servlet-name>
+        <servlet-class>com.strontsitskiy.servelets.basket_order.ReturnInfoInPDFServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReturnInfoInPDFServlet</servlet-name>
+        <url-pattern>/infopdf</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteOrderServlet</servlet-name>
         <url-pattern>/deleteorder</url-pattern>

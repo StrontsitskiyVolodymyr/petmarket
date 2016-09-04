@@ -22,6 +22,7 @@ import java.net.URL;
 
 
 public class GetImgServlet extends HttpServlet {
+    String path ="C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -33,7 +34,7 @@ public class GetImgServlet extends HttpServlet {
             UserDao userDao = daoFactory.getUserDao();
             User user = userDao.getById(userid);
             response.setContentType("image/jpg");
-            File f = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/userphotos/" + user.getImg());
+            File f = new File(path+"userphotos/" + user.getImg());
             BufferedImage bi = ImageIO.read(f);
             OutputStream out = response.getOutputStream();
             ImageIO.write(bi, "jpg", out);
@@ -44,7 +45,7 @@ public class GetImgServlet extends HttpServlet {
             PetDao petDao = daoFactory.getPetDao();
             Pet pet = petDao.getById(petid);
             response.setContentType("image/jpg");
-            File f = new File("C:/Users/i/Desktop/ВебМаг/Shop/src/main/webapp/img/petphotos/" + pet.getImg());
+            File f = new File(path+"petphotos/" + pet.getImg());
             BufferedImage bi = ImageIO.read(f);
             OutputStream out = response.getOutputStream();
             ImageIO.write(bi, "jpg", out);

@@ -24,7 +24,7 @@ public class CountOfOrdersServlet extends HttpServlet {
         List<PetOrder> orders= orderDao.getByCreatorId(user.getId());
         int numberOfOrdersInBasket=0;
                 for (PetOrder order : orders) {
-            if (!order.getStatus().equals("sold")) numberOfOrdersInBasket+=1;
+            if (!order.getStatus().equals("done")) numberOfOrdersInBasket+=1;
         }        String json = ("{ \"count\": \"" + numberOfOrdersInBasket+ "\" }");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();

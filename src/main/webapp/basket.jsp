@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="admin">
-<c:forEach items="${orders}" var="order"><c:choose><c:when test="${order.getStatus()!='sold'}">
+<c:forEach items="${orders}" var="order"><c:choose><c:when test="${order.getStatus()!='done'}">
     <div class="row container z-depth-3 adminorder">
         <div class="col s12 ">
             <div class="card marginBetweenOrder z-depth-3 ">

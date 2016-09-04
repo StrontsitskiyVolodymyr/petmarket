@@ -10,10 +10,13 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="row  admin container center-align">
-        <div class="z-depth-3 paymentdiv">
-<object data="${pageContext.request.contextPath}/order.pdf" type="application/pdf" width="600" height="300">
-    <a href="${pageContext.request.contextPath}/order.pdf">Download file.pdf</a>
-</object>
+    <div class="z-depth-3 paymentdiv">
+        <object  data="/infopdf" type="application/pdf" width="600"
+                height="300">
+            <a href="/infopdf">Download file.pdf</a>
+        </object>
+    </div>
+</div>
 <jsp:include page="futer.jsp"></jsp:include>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/materialize.js"></script>

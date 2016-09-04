@@ -17,6 +17,7 @@ public class Pet {
     private User owner;
     private int price;
     private String img;
+    private String status;
 
     public PetType getPetType() {
         return petType;
@@ -81,5 +82,13 @@ public class Pet {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
