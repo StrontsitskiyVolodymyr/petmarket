@@ -11,10 +11,9 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="row  admin container center-align">
     <div class="z-depth-3 paymentdiv">
-        <object  data="/infopdf" type="application/pdf" width="600"
+        <object   datasrc="/infopdf" type="application/pdf" width="600"
                 height="300">
-            <a href="/infopdf">Download file.pdf</a>
-        </object>
+                    </object>
     </div>
 </div>
 <jsp:include page="futer.jsp"></jsp:include>

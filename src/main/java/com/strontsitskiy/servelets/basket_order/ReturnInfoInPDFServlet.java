@@ -1,14 +1,12 @@
 package com.strontsitskiy.servelets.basket_order;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 
 public class ReturnInfoInPDFServlet extends HttpServlet {
@@ -20,17 +18,22 @@ public class ReturnInfoInPDFServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        File pdfFile = new File(path + session.getAttribute("curentOrderInfo").toString());
+        File pdfFile = new File(path + session.getAttribute("curentOrderInfo"));
 
-        response.setContentType("application/pdf");
-        response.setContentLength((int) pdfFile.length());
 
-        FileInputStream fileInputStream = new FileInputStream(pdfFile);
-        OutputStream responseOutputStream = response.getOutputStream();
-        int bytes;
-        while ((bytes = fileInputStream.read()) != -1) {
-            responseOutputStream.write(bytes);
+            ServletOutputStream op = response.getOutputStream();
+            response.reset();
+            response.setContentType("application/pdf");
+            byte[] buf = new byte[4096];
+            int length;
+            DataInputStream in = new DataInputStream(new FileInputStream(pdfFile));
+            while ((in != null) && ((length = in.read(buf)) != -1)) {
+                op.write(buf, 0, length);
+            }
+            in.close();
+            op.flush();
+            op.close();
         }
-        responseOutputStream.close();
-    }
+
+
 }

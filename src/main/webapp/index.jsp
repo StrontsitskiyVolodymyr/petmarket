@@ -19,7 +19,7 @@
                 <li>
                     <img src=img/slide1.jpg>
                     <div class="caption center-align">
-                        <h3> Sometime they funny...</h3>
+                        <h3> Sometime they are fun...</h3>
                     </div>
                 </li>
                 <li>

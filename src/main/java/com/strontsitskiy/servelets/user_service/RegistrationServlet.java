@@ -17,9 +17,12 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setCity(request.getParameter("city"));
         user.setPhone(request.getParameter("phone"));
-        if (request.getParameter("shop").equals("on")) {
-            user.setUserRole("shop");
+        if (request.getParameter("shop") != null) {
+            if (request.getParameter("shop").equals("on")) {
+                user.setUserRole("shop");
+            }
         }
+
         user.setPassword(MD5Util.md5Apache(request.getParameter("password")));
         userDao.add(user);
         HttpSession session = request.getSession();

@@ -47,8 +47,8 @@ public class OrderServlet extends HttpServlet {
         String nameOfOwner = petOrder.getOldOwner().getUserName();
         pdf.create(address, dateDilivery, price, nameOfOwner, petOrder.getTargetPet().getId().toString());
         HttpSession session = request.getSession();
-        String curentOrderInfo = "oder" + petOrder.getTargetPet().getId() + ".pdf";
+        String curentOrderInfo = "order" + petOrder.getTargetPet().getId() + ".pdf";
         session.setAttribute("curentOrderInfo", curentOrderInfo);
-        request.getRequestDispatcher("/paymentinfo.jsp").forward(request, response);
+        request.getRequestDispatcher("/infopdf").forward(request, response);
     }
 }
