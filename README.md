@@ -2,7 +2,7 @@
 
 1.git clone
 2.unzip in Shop\src\main\webapp/img/     zip->inImg.zip
-3.create db and put there                 ->damp
+3.create db and put there                 ->expdata.sql
 4.chenge configs in hibernate.cfg.xml 
 5.change String path in Shop\src\main\java\com\strontsitskiy\util\PDF.java    
 & in-> Shop\src\main\java\com\strontsitskiy\servelets\UploadingPhotoServlet.java
